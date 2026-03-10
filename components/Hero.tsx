@@ -145,7 +145,8 @@ export default function Hero() {
                 <ArrowDown size={16} />
               </button>
               <a
-                href={`mailto:${resumeData.basics.email}?subject=Resume Request`}
+                href="/Deekshitha_2026_resume_doc.pdf"
+                download="Deekshitha_2026_resume_doc.pdf"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl border border-[#1A2F50] text-[#C8D8E8] font-semibold text-sm hover:border-[#00D4C8] hover:text-[#00D4C8] transition-all duration-200"
                 style={{ fontFamily: "Outfit, sans-serif" }}
               >
