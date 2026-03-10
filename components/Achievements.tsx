@@ -4,12 +4,14 @@ import { motion, useInView } from "framer-motion";
 import { resumeData } from "@/lib/data";
 import { Star, Trophy, Shield, Zap } from "lucide-react";
 
-const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
+
+
+const iconMap: Record<string, LucideIcon> = {
   star: Star,
   trophy: Trophy,
   shield: Shield,
   zap: Zap,
-};
+}
 
 function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
   const [count, setCount] = useState(0);
