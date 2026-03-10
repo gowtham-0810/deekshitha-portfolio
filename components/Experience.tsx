@@ -5,8 +5,17 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { resumeData } from "@/lib/data";
 import {
-  Shield, Zap, Layers, Server, ChevronDown, ChevronRight, Building2,
-  Calendar, MapPin, CheckCircle2
+  Shield,
+  Zap,
+  Layers,
+  Server,
+  ChevronDown,
+  ChevronRight,
+  Building2,
+  Calendar,
+  MapPin,
+  CheckCircle2,
+  LucideIcon,
 } from "lucide-react";
 
 const iconMap: Record<string, LucideIcon> = {
