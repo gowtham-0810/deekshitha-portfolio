@@ -2,7 +2,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { resumeData } from "@/lib/data";
-import { Star, Trophy, Shield, Zap } from "lucide-react";
+import { Star, Trophy, Shield, Zap, LucideIcon } from "lucide-react";
 
 
 
