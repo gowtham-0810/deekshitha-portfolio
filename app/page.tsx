@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import SplashScreen from "@/components/SplashScreen";
 import Navigation from "@/components/Navigation";
@@ -15,20 +15,26 @@ export default function Home() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [ringPos, setRingPos] = useState({ x: 0, y: 0 });
 
+  const handleSplashComplete = useCallback(() => {
+    setShowContent(true);
+  }, []);
+
   useEffect(() => {
+    if (!showContent) return;
+
     let ringX = 0;
     let ringY = 0;
+    let raf: number;
 
     const onMove = (e: MouseEvent) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
-      // Ring follows with lag
+
       const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
       ringX = lerp(ringX, e.clientX, 0.12);
       ringY = lerp(ringY, e.clientY, 0.12);
       setRingPos({ x: ringX, y: ringY });
     };
 
-    let raf: number;
     const animate = () => {
       setRingPos((prev) => ({
         x: prev.x + (cursorPos.x - prev.x) * 0.12,
@@ -44,27 +50,27 @@ export default function Home() {
       window.removeEventListener("mousemove", onMove);
       cancelAnimationFrame(raf);
     };
-  }, []);
+  }, [showContent, cursorPos.x, cursorPos.y]);
 
   return (
     <>
-      {/* Custom cursor (desktop only) */}
-      <div
-        className="cursor hidden md:block"
-        style={{ left: cursorPos.x, top: cursorPos.y }}
-      />
-      <div
-        className="cursor-ring hidden md:block"
-        style={{ left: ringPos.x, top: ringPos.y }}
-      />
+      {showContent && (
+        <>
+          <div
+            className="cursor hidden md:block"
+            style={{ left: cursorPos.x, top: cursorPos.y }}
+          />
+          <div
+            className="cursor-ring hidden md:block"
+            style={{ left: ringPos.x, top: ringPos.y }}
+          />
+        </>
+      )}
 
-      {/* Splash screen */}
-      {!showContent && <SplashScreen onComplete={() => setShowContent(true)} />}
+      {!showContent && <SplashScreen onComplete={handleSplashComplete} />}
 
-      {/* Background canvas */}
       <AnimatedBackground />
 
-      {/* Grid overlay texture */}
       <div
         className="fixed inset-0 pointer-events-none z-0 opacity-[0.04]"
         style={{
@@ -74,7 +80,6 @@ export default function Home() {
         }}
       />
 
-      {/* Main content */}
       {showContent && (
         <div className="relative z-10">
           <Navigation />
