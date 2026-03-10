@@ -9,7 +9,7 @@ import {
   Calendar, MapPin, CheckCircle2
 } from "lucide-react";
 
-const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
+const iconMap: Record<string, LucideIcon> = {
   shield: Shield,
   zap: Zap,
   layers: Layers,
