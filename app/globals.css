@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-syne: 'Syne', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --font-jetbrains: 'JetBrains Mono', monospace;
+  
+  --cyber-teal: #00D4C8;
+  --cyber-gold: #F5C842;
+  --cyber-navy: #040D1E;
+  --cyber-dark: #070F20;
+  --cyber-card: #0A1628;
+  --cyber-border: #1A2F50;
+  --cyber-text: #C8D8E8;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #040D1E;
+  color: #C8D8E8;
+  font-family: var(--font-outfit), sans-serif;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  width: 12px;
+  height: 12px;
+  background: var(--cyber-teal);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
+  mix-blend-mode: screen;
+}
+
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(0, 212, 200, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #040D1E;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--cyber-teal);
+  border-radius: 4px;
+}
+
+/* Glass card */
+.glass-card {
+  background: rgba(10, 22, 40, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(26, 47, 80, 0.8);
+}
+
+/* Glow effects */
+.glow-teal {
+  box-shadow: 0 0 30px rgba(0, 212, 200, 0.15), 0 0 60px rgba(0, 212, 200, 0.05);
+}
+
+.glow-gold {
+  box-shadow: 0 0 30px rgba(245, 200, 66, 0.2), 0 0 60px rgba(245, 200, 66, 0.05);
+}
+
+.text-glow-teal {
+  text-shadow: 0 0 20px rgba(0, 212, 200, 0.5);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #00D4C8 0%, #00A8B5 50%, #F5C842 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #F5C842 0%, #FFB800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Shimmer effect */
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(0,212,200,0.15) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+/* Section padding */
+.section-pad {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad {
+    padding: 6rem 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-pad {
+    padding: 7rem 0;
+  }
+}
+
+/* Metric badge */
+.metric-badge {
+  background: linear-gradient(135deg, rgba(0,212,200,0.15) 0%, rgba(0,212,200,0.05) 100%);
+  border: 1px solid rgba(0,212,200,0.3);
+  color: #00D4C8;
+  font-family: var(--font-jetbrains);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 500;
+}
+
+.metric-badge-gold {
+  background: linear-gradient(135deg, rgba(245,200,66,0.15) 0%, rgba(245,200,66,0.05) 100%);
+  border: 1px solid rgba(245,200,66,0.3);
+  color: #F5C842;
+}
+
+/* Hover tilt utility */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,212,200,0.12);
+}
+
+/* Timeline dot */
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: var(--cyber-teal);
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,212,200,0.8);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
