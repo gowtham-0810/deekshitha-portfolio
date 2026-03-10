@@ -2,9 +2,9 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { resumeData } from "@/lib/data";
-import { ArrowDown, Download, Linkedin, Mail, MapPin, Shield, Zap, Award } from "lucide-react";
+import { ArrowDown, Download, Linkedin, Mail, MapPin, Shield, Zap, Award, LucideIcon } from "lucide-react";
 
-const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
+const iconMap: Record<string, LucideIcon> = {
   shield: Shield,
   zap: Zap,
   award: Award,
