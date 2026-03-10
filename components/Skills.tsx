@@ -2,9 +2,9 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { resumeData } from "@/lib/data";
-import { Code2, Layers, Wrench, Cpu, Database, Monitor, GitBranch } from "lucide-react";
+import { Code2, Layers, Wrench, Cpu, Database, Monitor, GitBranch, LucideIcon } from "lucide-react";
 
-const iconMap: Record<string, React.FC<{ size?: number; className?: string }>> = {
+const iconMap: Record<string, LucideIcon> = {
   code: Code2,
   layers: Layers,
   tool: Wrench,
